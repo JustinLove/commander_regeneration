@@ -1,0 +1,14 @@
+{
+  "author": "wondible",
+  "build": "74525",
+  "category": ["commander"],
+  "context": "server",
+  "date": "2014/11/09",
+  "description": "Commanders slowly regain health.",
+  "display_name": "Commander Regeneration",
+  "forum": "https://forums.uberent.com/threads/req-commander-regen.65763/",
+  "identifier": "com.wondible.pa.commander_regeneration",
+  "signature": "not yet implemented",
+  "version": "0.1.0"
+}
+
