@@ -4,7 +4,7 @@ Commanders slowly regain health.
 
 ## Current Limitations
 
-The mod only works for a single planet.  Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
+Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
 
 ## Technical Implementation
 

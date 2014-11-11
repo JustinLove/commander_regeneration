@@ -17,14 +17,23 @@
     })
   }
 
-  var event_seconds = 5000
+  var event_ms = 5000
 
   var tick = function(planet) {
-    regen(planet)
-    setTimeout(tick, event_seconds, planet)
+    var n = model.celestialViewModels().length - 1
+    if (n > 0) {
+      regen(planet)
+      if (planet < n-1) {
+        setTimeout(tick, event_ms / n, planet + 1)
+      } else {
+        setTimeout(tick, event_ms / n, 0)
+      }
+    } else {
+      setTimeout(tick, event_ms, 0)
+    }
   }
 
-  setTimeout(tick, event_seconds, 0)
+  setTimeout(tick, event_ms, 0)
 
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
