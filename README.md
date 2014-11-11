@@ -4,7 +4,7 @@ Commanders slowly regain health.
 
 ## Current Limitations
 
-Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
+No regen occurs while in transports. Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
 
 ## Technical Implementation
 
@@ -21,6 +21,7 @@ The mod could be split into create-unit lockdown, and a client mod that performe
 - Negative damage works for direct fire and splash damage with `splash_damages_allies`.
 - Negative damage is rejected for damage volumes.
 - Negative armor multipliers work, even for damage volumes.
+- Units in transports aren't affected by area damage.
 - Direct fire weapons cannot target your own units.
 - Secondary fire weapons can target the ground near your units.
 
