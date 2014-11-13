@@ -4,7 +4,7 @@ Commanders slowly regain health.
 
 ## Current Limitations
 
-No regen occurs while in transports. Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?) Rate is proportional to wall-clock time, not sim time.
+No regen occurs while in transports. Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
 
 ## Technical Implementation
 
