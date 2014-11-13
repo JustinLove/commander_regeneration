@@ -9,6 +9,7 @@
 
   var liveGameWatchList = handlers.watch_list
   handlers.watch_list = function(payload) {
+    //console.log(payload)
     if (!payload) return
     var events = []
     var alerts = []
