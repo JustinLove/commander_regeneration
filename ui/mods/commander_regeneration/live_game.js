@@ -12,7 +12,7 @@
   var regen = function(planet) {
     if (model.players().length < 1) return
     pasteUnits3D({
-      army: model.players()[0].id,
+      army: model.player().id || model.players()[0].id,
       what: launcher,
       planet: planet,
       location: {x: 1, y: 0, z: 0}
@@ -86,13 +86,13 @@
 
   handlers.commanderRegenerationEvents = function(payload) {
     actualEvents(actualEvents() + payload.list.length)
-    console.log('events', actualEvents(), targetEvents())
+    //console.log('events', actualEvents(), targetEvents())
   }
 
   var tick = function() {
     if (planets() > 0) {
       var planet = Math.floor(Math.random() * planets())
-      console.log('regen', actualEvents(), targetEvents(), wait_ms(), planet)
+      //console.log('regen', actualEvents(), targetEvents(), wait_ms(), planet)
       regen(planet)
     }
     setTimeout(tick, fuzz(wait_ms()))
