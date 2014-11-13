@@ -2,9 +2,9 @@
 
 Commanders slowly regain health.
 
-## Current Limitations
+## Limitations
 
-No regen occurs while in transports. Since it runs on each client, the regen rate is proportional to the number of human players (and spectators?)
+No regen occurs while in transports.
 
 ## Technical Implementation
 
@@ -12,7 +12,7 @@ The mod enables the create unit cheat, and then shuts off the normal UI affordan
 
 ### Alternate Implementations
 
-I believe this could be ported to server-script, but there would be a small amount of original research in how to set up such mods.
+I believe this could be ported to server-script and would be much simplier as a result, but there would be a small amount of original research in how to set up such mods.
 
 The mod could be split into create-unit lockdown, and a client mod that performed regeneration, but the regeneration would stop if that client disconnected, and it's also possible that the sim would reject units from a defeated player.
 

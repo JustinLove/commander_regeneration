@@ -3,12 +3,12 @@
   "build": "74525",
   "category": ["commander"],
   "context": "server",
-  "date": "2014/11/12",
+  "date": "2014/11/13",
   "description": "Commanders slowly regain health.",
   "display_name": "Commander Regeneration",
   "forum": "https://forums.uberent.com/threads/wip-server-commander-regeneration.65911/",
   "identifier": "com.wondible.pa.commander_regeneration",
   "signature": "not yet implemented",
-  "version": "0.2.0"
+  "version": "0.3.0"
 }
 
