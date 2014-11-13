@@ -2,6 +2,7 @@
   console.log('commander regeneration')
 
   var launcher = "/pa/commander_regeneration/commander_regen_launcher.json"
+  var event_s = ko.observable(5)
 
   var pasteUnits3D = function(config) {
     model.send_message('create_unit', config)
@@ -17,31 +18,68 @@
     })
   }
 
-  var event_s = ko.observable(5)
+  var baselineDefined = false
+  var baseline = ko.observable(0)
+  var endOfTime = ko.observable(0)
+  var liveGameTime = handlers.time
+  handlers.time = function(payload) {
+    endOfTime(payload.end_time)
+    if (!baselineDefined) {
+      baselineDefined = true
+      baseline(payload.end_time)
+    }
+    //console.log(time)
+    if (liveGameTime) liveGameTime(payload)
+  }
+  var transpired = ko.computed(function() {
+    return endOfTime() - baseline()
+  })
+
   var planets = ko.computed(function() {
     return model.celestialViewModels().length - 1
   })
-  var event_ms = ko.computed(function() {
+  var baseEvent_ms = ko.computed(function() {
     if (planets() > 0) {
       return event_s() * 1000 / planets()
     } else {
       return event_s() * 1000
     }
   })
+  var targetEventRate = ko.computed(function() {
+    if (planets() > 0) {
+      return planets() / event_s()
+    } else {
+      return 0
+    }
+  })
+
+  var targetEvents = ko.computed(function() {
+    return transpired() * targetEventRate()
+  })
+  var actualEvents = ko.observable(0)
+  var wait_ms = ko.computed(function() {
+    if (actualEvents() >= targetEvents()) {
+      return baseEvent_ms() * (actualEvents() - targetEvents() + 1)
+    } else {
+      return baseEvent_ms() / (targetEvents() - actualEvents() + 1)
+    }
+  })
 
   var tick = function(planet) {
     var n = planets()
     if (n > 0) {
+      actualEvents(actualEvents() + 1)
+      console.log(actualEvents(), targetEvents())
       regen(planet)
     }
     if (planet < n-1) {
-      setTimeout(tick, event_ms(), planet + 1)
+      setTimeout(tick, wait_ms(), planet + 1)
     } else {
-      setTimeout(tick, event_ms(), 0)
+      setTimeout(tick, wait_ms(), 0)
     }
   }
 
-  setTimeout(tick, event_ms(), 0)
+  setTimeout(tick, baseEvent_ms(), 0)
 
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
