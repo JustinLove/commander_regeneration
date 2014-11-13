@@ -3,6 +3,7 @@
 
   var launcher = "/pa/commander_regeneration/commander_regen_launcher.json"
   var event_s = ko.observable(5)
+  var simulatePlayers = 1
 
   var pasteUnits3D = function(config) {
     model.send_message('create_unit', config)
@@ -83,7 +84,9 @@
     }
   }
 
-  setTimeout(tick, baseEvent_ms(), 0)
+  for (var i = 0;i < simulatePlayers;i++) {
+    setTimeout(tick, baseEvent_ms(), 0)
+  }
 
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
