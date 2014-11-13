@@ -17,23 +17,31 @@
     })
   }
 
-  var event_ms = 5000
+  var event_s = ko.observable(5)
+  var planets = ko.computed(function() {
+    return model.celestialViewModels().length - 1
+  })
+  var event_ms = ko.computed(function() {
+    if (planets() > 0) {
+      return event_s() * 1000 / planets()
+    } else {
+      return event_s() * 1000
+    }
+  })
 
   var tick = function(planet) {
-    var n = model.celestialViewModels().length - 1
+    var n = planets()
     if (n > 0) {
       regen(planet)
-      if (planet < n-1) {
-        setTimeout(tick, event_ms / n, planet + 1)
-      } else {
-        setTimeout(tick, event_ms / n, 0)
-      }
+    }
+    if (planet < n-1) {
+      setTimeout(tick, event_ms(), planet + 1)
     } else {
-      setTimeout(tick, event_ms, 0)
+      setTimeout(tick, event_ms(), 0)
     }
   }
 
-  setTimeout(tick, event_ms, 0)
+  setTimeout(tick, event_ms(), 0)
 
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
