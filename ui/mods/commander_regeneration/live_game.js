@@ -61,7 +61,7 @@
     if (actualEvents() >= targetEvents()) {
       return baseEvent_ms() * (actualEvents() - targetEvents() + 1)
     } else {
-      return baseEvent_ms() / (targetEvents() - actualEvents() + 1)
+      return baseEvent_ms() / (targetEvents() - actualEvents())
     }
   })
 
@@ -73,7 +73,7 @@
   var tick = function(planet) {
     var n = planets()
     if (n > 0) {
-      console.log('regen', actualEvents(), targetEvents())
+      console.log('regen', actualEvents(), targetEvents(), wait_ms())
       regen(planet)
     }
     if (planet < n-1) {
