@@ -65,11 +65,15 @@
     }
   })
 
+  handlers.commanderRegenerationEvents = function(payload) {
+    actualEvents(actualEvents() + payload.list.length)
+    console.log('events', actualEvents(), targetEvents())
+  }
+
   var tick = function(planet) {
     var n = planets()
     if (n > 0) {
-      actualEvents(actualEvents() + 1)
-      console.log(actualEvents(), targetEvents())
+      console.log('regen', actualEvents(), targetEvents())
       regen(planet)
     }
     if (planet < n-1) {

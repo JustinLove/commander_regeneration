@@ -8,6 +8,7 @@ var media = require('./lib/path').media(stream)
 var build = 'ui/main/shared/js/build.js'
 var common = 'ui/main/shared/js/common.js'
 var live_game = 'ui/mods/commander_regeneration/live_game.js'
+var live_game_unit_alert = 'ui/mods/commander_regeneration/live_game_unit_alert.js'
 
 
 module.exports = function(grunt) {
@@ -27,6 +28,10 @@ module.exports = function(grunt) {
           {
             src: modPath + live_game,
             dest: live_game,
+          },
+          {
+            src: modPath + live_game_unit_alert,
+            dest: live_game_unit_alert,
           },
         ],
       },
