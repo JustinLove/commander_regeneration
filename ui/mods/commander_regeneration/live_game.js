@@ -39,6 +39,14 @@
   var planets = ko.computed(function() {
     return model.celestialViewModels().length - 1
   })
+  var nextPlanet = function(planet) {
+    // not using modulus because of planets = 0
+    if (planet+1 < planets()) {
+      return planet+1
+    } else {
+      return 0
+    }
+  }
   var connectedClient = function(player) {
     return player.ai == 0 && player.disconnected == false
   }
@@ -80,6 +88,9 @@
       return baseEvent_ms() / (targetEvents() - actualEvents())
     }
   })
+  var fuzz = function(n) {
+    return 2 * n * Math.random()
+  }
 
   handlers.commanderRegenerationEvents = function(payload) {
     actualEvents(actualEvents() + payload.list.length)
@@ -87,21 +98,15 @@
   }
 
   var tick = function(planet) {
-    var n = planets()
-    if (n > 0) {
+    if (planets() > 0) {
       console.log('regen', actualEvents(), targetEvents(), wait_ms())
       regen(planet)
     }
-    if (planet < n-1) {
-      setTimeout(tick, wait_ms(), planet + 1)
-    } else {
-      setTimeout(tick, wait_ms(), 0)
-    }
+    setTimeout(tick, fuzz(wait_ms()), nextPlanet(planet))
   }
 
   for (var i = 0;i < simulatePlayers;i++) {
-    console.log('starting regen')
-    setTimeout(tick, baseEvent_ms(), 0)
+    setTimeout(tick, fuzz(baseEvent_ms()), 0)
   }
 
   model.devMode(false)
