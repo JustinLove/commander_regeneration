@@ -2,7 +2,7 @@
   console.log('commander regeneration')
 
   var launcher = "/pa/commander_regeneration/commander_regen_launcher.json"
-  var event_s = ko.observable(5)
+  var event_s = ko.observable(3)
   var simulatePlayers = 1
 
   var pasteUnits3D = function(config) {
@@ -39,11 +39,26 @@
   var planets = ko.computed(function() {
     return model.celestialViewModels().length - 1
   })
+  var connectedClient = function(player) {
+    return player.ai == 0 && player.disconnected == false
+  }
+  var numberOfPlayers = function(player) {return player.slots.length}
+  var sum = function(a, b) {return a + b}
+  var players = ko.computed(function() {
+    var n = model.players().filter(connectedClient).map(numberOfPlayers).reduce(sum, 0)
+    if (simulatePlayers > 0) {
+      return simulatePlayers
+    } else if (n > 0) {
+      return n
+    } else {
+      return 1
+    }
+  })
   var baseEvent_ms = ko.computed(function() {
     if (planets() > 0) {
-      return event_s() * 1000 / planets()
+      return event_s() * players() * 1000 / planets()
     } else {
-      return event_s() * 1000
+      return event_s() * players() * 1000
     }
   })
   var targetEventRate = ko.computed(function() {
@@ -85,6 +100,7 @@
   }
 
   for (var i = 0;i < simulatePlayers;i++) {
+    console.log('starting regen')
     setTimeout(tick, baseEvent_ms(), 0)
   }
 
