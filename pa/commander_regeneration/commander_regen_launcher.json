@@ -30,6 +30,11 @@
     "radius": 0.25, 
     "type": "Structure"
   }, 
+  "recon": {
+    "observable": {
+      "always_visible": true
+    } 
+  },
   "spawn_layers": "WL_LandHorizontal", 
   "strategic_icon_priority": 3, 
   "unit_types": [

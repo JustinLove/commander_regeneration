@@ -4,7 +4,8 @@
   var launcher = "/pa/commander_regeneration/commander_regen_launcher.json"
   var regenEvent = function(alert) {
     return ((alert.watch_type == constants.watch_type.death ||
-             alert.watch_type == constants.watch_type.target_destroyed) &&
+             alert.watch_type == constants.watch_type.target_destroyed ||
+             alert.watch_type == constants.watch_type.allied_death) &&
       alert.spec_id == launcher)
   }
 
