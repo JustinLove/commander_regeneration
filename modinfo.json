@@ -3,7 +3,7 @@
   "build": "74525",
   "category": ["commander"],
   "context": "server",
-  "date": "2014/11/13",
+  "date": "2014/11/14",
   "description": "Commanders slowly regain health.",
   "display_name": "Commander Regeneration",
   "forum": "https://forums.uberent.com/threads/wip-server-commander-regeneration.65911/",

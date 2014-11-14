@@ -86,13 +86,13 @@
 
   handlers.commanderRegenerationEvents = function(payload) {
     actualEvents(actualEvents() + payload.list.length)
-    //console.log('events', actualEvents(), targetEvents())
+    console.log('events', actualEvents(), targetEvents())
   }
 
   var tick = function() {
     if (planets() > 0) {
       var planet = Math.floor(Math.random() * planets())
-      //console.log('regen', actualEvents(), targetEvents(), wait_ms(), planet)
+      console.log('regen', actualEvents(), targetEvents(), wait_ms(), planet)
       regen(planet)
     }
     setTimeout(tick, fuzz(wait_ms()))
