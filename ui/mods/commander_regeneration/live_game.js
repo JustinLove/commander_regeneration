@@ -22,12 +22,15 @@
   var baselineDefined = false
   var baseline = ko.observable(0)
   var endOfTime = ko.observable(0)
+  var resetTime = function() {
+    baselineDefined = true
+    baseline(endOfTime())
+  }
   var liveGameTime = handlers.time
   handlers.time = function(payload) {
     endOfTime(payload.end_time)
     if (!baselineDefined) {
-      baselineDefined = true
-      baseline(payload.end_time)
+      resetTime()
     }
     //console.log(time)
     if (liveGameTime) liveGameTime(payload)
@@ -98,9 +101,19 @@
     setTimeout(tick, fuzz(wait_ms()))
   }
 
-  for (var i = 0;i < simulatePlayers;i++) {
-    setTimeout(tick, fuzz(baseEvent_ms()))
+  var beginRegeneration = function() {
+    resetTime()
+    for (var i = 0;i < simulatePlayers;i++) {
+      setTimeout(tick, fuzz(baseEvent_ms()))
+    }
   }
+
+  model.mode.subscribe(function(value) {
+    console.log(value)
+    if (value == 'playing') {
+      setTimeout(beginRegeneration, 5000)
+    }
+  })
 
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
