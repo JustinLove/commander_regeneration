@@ -93,6 +93,8 @@
   }
 
   var tick = function() {
+    if (model.mode() == 'game_over') return
+
     if (planets() > 0) {
       var planet = Math.floor(Math.random() * planets())
       console.log('regen', actualEvents(), targetEvents(), wait_ms(), planet)
