@@ -5,6 +5,11 @@ var scene_mod_list = [];
 var messageLog = {};
 var app = {};
 
+var constants = {
+    PLANET_CSG_DATABASE: 'planet_csg',
+    PLANET_METAL_SPOTS_DATABASE: 'planet_metal_spots'
+}
+
 function parse(string) {
     var result = '';
 
@@ -244,7 +249,7 @@ function locInitInternal(localeString) {
     locNamespace = locNamespace.substr(locNamespace.lastIndexOf('/') + 1);
     $.i18n.init({
         lng: localeString,
-        lowerCaseLng: true,
+        lowerCaseLng: false,
         resGetPath: '/main/_i18n/locales/__lng__/__ns__.json',
         ns: { namespaces: [locNamespace
             , 'shared'
