@@ -1,3 +1,7 @@
+## 2.0.0
+
+- Remove obsolete cheat triggers.  Sandbox game option required.
+
 ## 1.0.3
 
 - Update common.js to 78071
