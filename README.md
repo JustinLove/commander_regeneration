@@ -6,6 +6,8 @@ Commanders slowly regain health.
 
 Sandbox game option required.  Players will be prevented from using paste-unit, and the Devmode UI is turned off.
 
+PAMM is required in order to set up the server mod hooks.
+
 ## Limitations
 
 No regen occurs while in transports.

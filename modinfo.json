@@ -8,6 +8,14 @@
   "display_name": "Commander Regeneration",
   "forum": "https://forums.uberent.com/threads/rel-server-commander-regeneration.66073/",
   "identifier": "com.wondible.pa.commander_regeneration",
+  "scenes": {
+    "live_game": [
+      "coui://ui/mods/commander_regeneration/live_game.js"
+    ],
+    "live_game_unit_alert": [
+      "coui://ui/mods/commander_regeneration/live_game_unit_alert.js"
+    ]
+  },
   "signature": "not yet implemented",
   "version": "2.0.0"
 }

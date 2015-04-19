@@ -2,6 +2,7 @@
 
 - Remove obsolete cheat triggers.  Sandbox game option required.
 - Attempt to block sandbox related UI elements
+- Use PAMM for scene mod loading
 
 ## 1.0.3
 
