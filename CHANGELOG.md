@@ -1,6 +1,7 @@
 ## 2.0.0
 
 - Remove obsolete cheat triggers.  Sandbox game option required.
+- Attempt to block sandbox related UI elements
 
 ## 1.0.3
 

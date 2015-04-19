@@ -2,6 +2,10 @@
 
 Commanders slowly regain health.
 
+## Requirements
+
+Sandbox game option required.  Players will be prevented from using paste-unit, and the Devmode UI is turned off.
+
 ## Limitations
 
 No regen occurs while in transports.

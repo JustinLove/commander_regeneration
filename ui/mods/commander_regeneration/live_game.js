@@ -117,8 +117,20 @@
     }
   })
 
+  var live_game_server_state = handlers.server_state
+  handlers.server_state = function(msg) {
+    if (msg.data && msg.data.client && msg.data.client.game_options) {
+      msg.data.client.game_options.sandbox = false
+    }
+
+    live_game_server_state.call(this, msg)
+  }
+
   model.devMode(false)
   model.cheatAllowCreateUnit(false)
+  model.cheatAllowChangeControl(false)
+  model.cheatAllowChangeVision(false)
   model.sandbox(false)
+  model.gameOptions.sandbox(false)
 })()
 
