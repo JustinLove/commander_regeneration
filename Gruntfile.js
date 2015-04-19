@@ -6,7 +6,6 @@ var modPath = '../../server_mods/com.wondible.pa.commander_regeneration/'
 var stream = 'stable'
 var media = require('./lib/path').media(stream)
 var build = 'ui/main/shared/js/build.js'
-var common = 'ui/main/shared/js/common.js'
 var live_game = 'ui/mods/commander_regeneration/live_game.js'
 var live_game_unit_alert = 'ui/mods/commander_regeneration/live_game_unit_alert.js'
 
@@ -15,14 +14,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     copy: {
-      common: {
-        files: [
-          {
-            src: media + common,
-            dest: common,
-          },
-        ],
-      },
       back: {
         files: [
           {
@@ -44,8 +35,7 @@ module.exports = function(grunt) {
               'README.md',
               'CHANGELOG.md',
               'ui/**',
-              'pa/**',
-              'server-script/**'],
+              'pa/**'],
             dest: modPath,
           },
         ],
@@ -73,14 +63,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jsonlint');
   grunt.loadNpmTasks('grunt-json-schema');
 
-  grunt.registerTask('hackCommon', 'Add mod hook to common.js', function() {
-    var text = grunt.file.read(common)
-    var ext = grunt.file.read('common_extensions.js')
-    grunt.file.write(common, text + ext)
-  })
-
   // Default task(s).
-  grunt.registerTask('default', ['json_schema', 'jsonlint', 'copy:common', 'hackCommon', 'copy:mod']);
+  grunt.registerTask('default', ['json_schema', 'jsonlint', 'copy:mod']);
 
 };
 

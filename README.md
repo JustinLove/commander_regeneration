@@ -12,9 +12,11 @@ PAMM is required in order to set up the server mod hooks.
 
 No regen occurs while in transports.
 
+Incompatible with other mods that do cheat restriction (Puppetmaster and Murder Party)
+
 ## Technical Implementation
 
-The mod enables the create unit cheat, and then shuts off the normal UI affordances for using it.  This is done via `common.js`, so the mod is incompatible with other mods that use the same trick (Puppetmaster and Murder Party) The client periodically creates a zero-health unit which immediately dies and (death weapon) causes a planet-wide explosion that does 1 damage; all armor types reduce this damage to 0, except commander which has a -60 multiplier (62.5 is 0.5% health)
+The client periodically creates a zero-health unit which immediately dies and (death weapon) causes a planet-wide explosion that does 1 damage; all armor types reduce this damage to 0, except commander which has a -60 multiplier (62.5 is 0.5% health)
 
 ### Alternate Implementations
 
@@ -39,10 +41,8 @@ PA will upload **all files** in the mod directory, including `node_modules` and 
 
 ### Available Tasks
 
-- copy:common - copy `common.js` from the game into the mod
 - copy:back - copy `live_game.js` from the `server_mods` directory back into the mod
 - copy:mod - copy the mod files into `server_mods`
-- hackCommon - append extra code to `common.js` in the mod
 - jsonlint - lint all the mod json files
 - json_schema - partial validation of mod json files format using schema by exterminans https://forums.uberent.com/threads/wip-units-ammo-and-tools-json-validation-schema.60451/
-- default: json_schema, jsonlint, copy:common, hackCommon, copy:mod
+- default: json_schema, jsonlint, copy:mod

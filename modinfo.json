@@ -9,6 +9,9 @@
   "forum": "https://forums.uberent.com/threads/rel-server-commander-regeneration.66073/",
   "identifier": "com.wondible.pa.commander_regeneration",
   "scenes": {
+    "global_mod_list": [
+      "coui://ui/mods/commander_regeneration/global.js"
+    ],
     "live_game": [
       "coui://ui/mods/commander_regeneration/live_game.js"
     ],

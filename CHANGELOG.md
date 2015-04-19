@@ -3,6 +3,7 @@
 - Remove obsolete cheat triggers.  Sandbox game option required.
 - Attempt to block sandbox related UI elements
 - Use PAMM for scene mod loading
+- Remove common.js shadow
 
 ## 1.0.3
 
