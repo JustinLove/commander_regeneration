@@ -1,3 +1,10 @@
+## 3.0.0
+
+- Replace all the crazy hacks with new `passive_healt_regen` attribute
+  - Sandbox mode no longer required
+  - Caveat: No longer compatible with other commander mods
+- Commanders no longer leave wreckage (otherwise it sort of comes back to life)
+
 ## 2.0.0
 
 - Remove obsolete cheat triggers.  Sandbox game option required.

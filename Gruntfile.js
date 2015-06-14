@@ -14,18 +14,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     copy: {
-      back: {
-        files: [
-          {
-            src: modPath + live_game,
-            dest: live_game,
-          },
-          {
-            src: modPath + live_game_unit_alert,
-            dest: live_game_unit_alert,
-          },
-        ],
-      },
       mod: {
         files: [
           {
@@ -34,37 +22,43 @@ module.exports = function(grunt) {
               'LICENSE.txt',
               'README.md',
               'CHANGELOG.md',
-              'ui/**',
               'pa/**'],
             dest: modPath,
           },
         ],
       },
     },
-    jsonlint: {
-      all: {
-        src: [
-          'pa/**/*.json'
-        ]
-      },
-    },
-    json_schema: {
-      all: {
-        files: {
-          'lib/schema.json': [
-            'pa/**/*.json'
-          ]
-        },
-      },
-    },
+    clean: ['pa', modPath],
+    // copy files from PA, transform, and put into mod
+    proc: {
+      commander: {
+        targets: [
+          'pa/units/commanders/base_commander/base_commander.json'
+        ],
+        process: function(spec) {
+          spec.passive_health_regen = 60
+          spec.wreckage_health_frac = 0
+        }
+      }
+    }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-jsonlint');
-  grunt.loadNpmTasks('grunt-json-schema');
+
+  grunt.registerMultiTask('proc', 'Process unit files into the mod', function() {
+    if (this.data.targets) {
+      var specs = spec.copyPairs(grunt, this.data.targets, media)
+      spec.copyUnitFiles(grunt, specs, this.data.process)
+    } else {
+      var specs = this.filesSrc.map(function(s) {return grunt.file.readJSON(media + s)})
+      var out = this.data.process.apply(this, specs)
+      grunt.file.write(this.data.dest, JSON.stringify(out, null, 2))
+    }
+  })
 
   // Default task(s).
-  grunt.registerTask('default', ['json_schema', 'jsonlint', 'copy:mod']);
+  grunt.registerTask('default', ['proc', 'copy:mod']);
 
 };
 
