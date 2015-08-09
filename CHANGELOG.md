@@ -1,3 +1,7 @@
+## 3.0.1
+
+- Update for +sing
+
 ## 3.0.0
 
 - Replace all the crazy hacks with new `passive_health_regen` attribute
