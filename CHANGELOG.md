@@ -1,3 +1,10 @@
+## 4.0.0
+
+- Positive regen broken; on to technique #3: localized time-ammo auto-fire negative armor multiplier
+- Muzzle flash turned off because it was going continuously
+- Since many commanders specialize tools, we have to shadow them all
+- Commanders leave wreckage again
+
 ## 3.0.1
 
 - Update for +sing

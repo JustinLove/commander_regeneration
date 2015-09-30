@@ -14,6 +14,18 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     copy: {
+      back: {
+        files: [
+          {
+            src: modPath + live_game,
+            dest: live_game,
+          },
+          {
+            src: modPath + live_game_unit_alert,
+            dest: live_game_unit_alert,
+          },
+        ],
+      },
       mod: {
         files: [
           {
@@ -28,23 +40,69 @@ module.exports = function(grunt) {
         ],
       },
     },
-    clean: ['pa', modPath],
+    jsonlint: {
+      all: {
+        src: [
+          'pa/**/*.json'
+        ]
+      },
+    },
+    json_schema: {
+      all: {
+        files: {
+          'lib/schema.json': [
+            'pa/**/*.json'
+          ]
+        },
+      },
+    },
+    clean: ['pa/units', 'pa/tools', modPath],
     // copy files from PA, transform, and put into mod
     proc: {
       commander: {
         targets: [
-          'pa/units/commanders/base_commander/base_commander.json'
+          'pa/units/commanders/**/*.json',
+          '!pa/units/commanders/base_commander/base_commander_*.json',
+          '!pa/units/commanders/avatar/*.json',
+          '!pa/units/commanders/commander_list.json',
         ],
         process: function(spec) {
-          spec.passive_health_regen = 60
-          spec.wreckage_health_frac = 0
+          if (spec.tools) {
+            spec.tools.push( {
+              "aim_bone": "bone_root", 
+              "record_index": -1, 
+              "spec_id": "/pa/commander_regeneration/commander_regen_tool.json"
+            })
+          }
+
+          if (spec.events) {
+            // constantly triggers
+            delete spec.events.fired
+          }
         }
-      }
+      },
+      regen_tool: {
+        src: [
+          'pa_ex1/units/land/titan_structure/titan_structure_tool_weapon.json'
+        ],
+        cwd: media,
+        dest: 'pa/commander_regeneration/commander_regen_tool.json',
+        process: function(spec) {
+          spec.ammo_id = '/pa/commander_regeneration/commander_regen_ammo.json'
+          spec.fire_delay = 0
+          spec.ammo_capacity = 0
+          spec.ammo_per_shot = 0
+          delete spec.only_fire_once
+          return spec
+        }
+      },
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-jsonlint');
+  grunt.loadNpmTasks('grunt-json-schema');
 
   grunt.registerMultiTask('proc', 'Process unit files into the mod', function() {
     if (this.data.targets) {
@@ -58,7 +116,7 @@ module.exports = function(grunt) {
   })
 
   // Default task(s).
-  grunt.registerTask('default', ['proc', 'copy:mod']);
+  grunt.registerTask('default', ['proc', 'jsonlint', 'json_schema', 'copy:mod']);
 
 };
 

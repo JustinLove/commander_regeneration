@@ -4,9 +4,13 @@ Commanders slowly regain health.
 
 ## Limitations
 
-Incompatible with other mods that override the base commander.
+Incompatible with other mods that override the commanders. Since many commanders specialize tools, we have to shadow them all.
 
-Commanders no longer leave wreckage (otherwise it sort of comes back to life.)
+Muzzle flash turned off because it was going continuously.
+
+## Implementation
+
+The commander has an auto-fire time-ammo tool (similar to ragnorok)  The ammo thus fired has a tiny splash with a -60 multiplier (62.5 is 0.5% health)
 
 ## Development
 
