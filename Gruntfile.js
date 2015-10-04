@@ -70,14 +70,10 @@ module.exports = function(grunt) {
           if (spec.tools) {
             spec.tools.push( {
               "aim_bone": "bone_root", 
+              "fire_event": "fired3",
               "record_index": -1, 
               "spec_id": "/pa/commander_regeneration/commander_regen_tool.json"
             })
-          }
-
-          if (spec.events) {
-            // constantly triggers
-            delete spec.events.fired
           }
         }
       },

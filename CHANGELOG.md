@@ -1,3 +1,7 @@
+## 4.0.1
+
+- Restore muzzle flash (Thanks burntcustard)
+
 ## 4.0.0
 
 - Positive regen broken; on to technique #3: localized time-ammo auto-fire negative armor multiplier

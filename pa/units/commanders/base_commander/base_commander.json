@@ -130,6 +130,7 @@
     },
     {
       "aim_bone": "bone_root",
+      "fire_event": "fired3",
       "record_index": -1,
       "spec_id": "/pa/commander_regeneration/commander_regen_tool.json"
     }
@@ -139,7 +140,11 @@
     "air_ammo_spec": "/pa/ammo/nuke_pbaoe/nuke_pbaoe_air.json",
     "air_height_threshold": 50
   },
-  "events": {},
+  "events": {
+    "fired": {
+      "effect_spec": "/pa/effects/specs/default_muzzle_flash.pfx socket_rightMuzzle"
+    }
+  },
   "fx_offsets": [
     {
       "type": "build",
