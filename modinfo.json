@@ -1,14 +1,14 @@
 {
   "author": "wondible",
-  "build": "88288",
+  "build": "99377",
   "category": ["commander"],
   "context": "server",
-  "date": "2015/10/03",
+  "date": "2017/05/17",
   "description": "Commanders slowly regain health.",
   "display_name": "Commander Regeneration",
   "forum": "https://forums.uberent.com/threads/rel-server-commander-regeneration.66073/",
   "identifier": "com.wondible.pa.commander_regeneration",
   "signature": "not yet implemented",
-  "version": "4.0.1"
+  "version": "4.1.0"
 }
 

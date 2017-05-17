@@ -2,6 +2,8 @@
 
 Commanders slowly regain health.
 
+Uses Titans commander, which includes orbital vision.
+
 ## Limitations
 
 Incompatible with other mods that override the commanders. Since many commanders specialize tools, we have to shadow them all.

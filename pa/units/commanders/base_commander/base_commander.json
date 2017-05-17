@@ -70,6 +70,10 @@
         {
           "move_type": "amphibious",
           "stamp_type": "simple"
+        },
+        {
+          "move_type": "hover",
+          "stamp_type": "simple"
         }
       ]
     }
@@ -92,6 +96,12 @@
           "channel": "sight",
           "shape": "capsule",
           "radius": 150
+        },
+        {
+          "layer": "celestial",
+          "channel": "sight",
+          "shape": "sphere",
+          "radius": 1
         }
       ]
     }
@@ -143,6 +153,10 @@
   "events": {
     "fired": {
       "effect_spec": "/pa/effects/specs/default_muzzle_flash.pfx socket_rightMuzzle"
+    },
+    "teleported": {
+      "audio_cue": "/SE/Death/Veh",
+      "effect_spec": "/pa/effects/specs/default_explosion.pfx"
     }
   },
   "fx_offsets": [
@@ -163,9 +177,6 @@
     },
     "selection_response": {
       "cue": "/SE/Selection/commander"
-    },
-    "sing_selection_response": {
-      "cue": "/SE/UI/plus/sing"
     }
   },
   "selection_icon": {

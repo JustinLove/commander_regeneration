@@ -1,3 +1,8 @@
+## 4.1.0
+
+- Fix Titan's integration; while it doesn't really override the titans commander, mod priority meant we were overriding it anyway. The mod now always has orbital vision.
+- Picked up some missing new commanders in the process.
+
 ## 4.0.1
 
 - Restore muzzle flash (Thanks burntcustard)

@@ -62,9 +62,13 @@ module.exports = function(grunt) {
       commander: {
         targets: [
           'pa/units/commanders/**/*.json',
+          'pa_ex1/units/commanders/**/*.json',
           '!pa/units/commanders/base_commander/base_commander_*.json',
           '!pa/units/commanders/avatar/*.json',
           '!pa/units/commanders/commander_list.json',
+          '!pa_ex1/units/commanders/base_commander/base_commander_*.json',
+          '!pa_ex1/units/commanders/avatar/*.json',
+          '!pa_ex1/units/commanders/commander_list.json',
         ],
         process: function(spec) {
           if (spec.tools) {
