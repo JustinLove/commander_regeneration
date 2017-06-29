@@ -1,3 +1,7 @@
+## 4.2.0
+
+- Add new commanders circa 105067
+
 ## 4.1.0
 
 - Fix Titan's integration; while it doesn't really override the titans commander, mod priority meant we were overriding it anyway. The mod now always has orbital vision.
