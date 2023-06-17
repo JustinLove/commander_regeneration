@@ -108,11 +108,6 @@
       "bone": "bone_leftPad"
     }
   ],
-  "mesh_bounds": [
-    12.6,
-    6,
-    15.6193
-  ],
   "catalog_object_name": "DeltaCommander",
   "client": {
     "ui": {

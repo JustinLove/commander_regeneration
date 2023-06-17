@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    11,
-    8.71255,
-    13
-  ],
   "catalog_object_name": "QuadAjax",
   "client": {
     "ui": {

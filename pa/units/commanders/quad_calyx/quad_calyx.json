@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    11.5,
-    8.71255,
-    12.6193
-  ],
   "catalog_object_name": "QuadCalyx",
   "client": {
     "ui": {

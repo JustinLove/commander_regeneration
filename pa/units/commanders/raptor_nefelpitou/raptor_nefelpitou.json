@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    11.7,
-    8.71255,
-    11.1
-  ],
   "catalog_object_name": "RaptorNefelpitou",
   "client": {
     "ui": {

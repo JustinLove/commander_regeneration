@@ -116,11 +116,6 @@
       "bone": "bone_leftElbow"
     }
   ],
-  "mesh_bounds": [
-    10.3,
-    6.5,
-    12.4193
-  ],
   "catalog_object_name": "ProgenitorCommander",
   "client": {
     "ui": {

@@ -116,11 +116,6 @@
       "spec_id": "/pa/commander_regeneration/commander_regen_tool.json"
     }
   ],
-  "mesh_bounds": [
-    11,
-    10.5,
-    11.8
-  ],
   "catalog_object_name": "QuadPotbelly79",
   "kickstarter_backer": "Sean Dougherty",
   "client": {

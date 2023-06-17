@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    11.3,
-    8.71255,
-    13.4
-  ],
   "catalog_object_name": "RaptorBeast",
   "client": {
     "ui": {

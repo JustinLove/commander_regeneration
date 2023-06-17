@@ -5,7 +5,7 @@
   "strategic_icon_priority": 0,
   "max_health": 12500,
   "build_metal_cost": 25000,
-  "buildable_types": "CmdBuild",
+  "buildable_types": "CmdBuild & Custom58",
   "show_in_orbital_layer": true,
   "armor_type": "AT_Commander",
   "attachable": {
@@ -31,11 +31,13 @@
     "metal": 1500
   },
   "unit_types": [
+    "UNITTYPE_Custom58",
     "UNITTYPE_Commander",
     "UNITTYPE_Construction",
     "UNITTYPE_Mobile",
     "UNITTYPE_Offense",
     "UNITTYPE_Land",
+    "UNITTYPE_Amphibious",
     "UNITTYPE_NoBuild"
   ],
   "command_caps": [
@@ -56,9 +58,9 @@
     "type": "amphibious",
     "acceleration": 60,
     "brake": -1,
-    "move_speed": 6,
-    "turn_speed": 90,
-    "turn_in_place": false,
+    "move_speed": 8,
+    "turn_speed": 180,
+    "turn_in_place": true,
     "park_stamp": {
       "shape": "sphere",
       "cost": 20,
@@ -74,13 +76,18 @@
         {
           "move_type": "hover",
           "stamp_type": "simple"
+        },
+        {
+          "move_type": "water-hover",
+          "stamp_type": "simple"
         }
       ]
     }
   },
   "physics": {
     "radius": 9,
-    "sync_radius_to_extents": true
+    "sync_radius_to_extents": true,
+    "air_friction": 1
   },
   "recon": {
     "observer": {
@@ -183,8 +190,8 @@
     "diameter": 16.6
   },
   "mesh_bounds": [
-    12.6,
-    8.71255,
-    15.6193
+    10,
+    10,
+    12
   ]
 }

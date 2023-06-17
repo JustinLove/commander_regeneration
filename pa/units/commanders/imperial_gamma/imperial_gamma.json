@@ -78,11 +78,6 @@
       "bone": "bone_leftElbow"
     }
   ],
-  "mesh_bounds": [
-    12.6,
-    6,
-    15.6193
-  ],
   "catalog_object_name": "GammaCommander",
   "client": {
     "ui": {

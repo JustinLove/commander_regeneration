@@ -116,11 +116,6 @@
       "bone": "bone_leftElbow"
     }
   ],
-  "mesh_bounds": [
-    9.8,
-    7,
-    12.2
-  ],
   "catalog_object_name": "ThetaCommander",
   "client": {
     "ui": {

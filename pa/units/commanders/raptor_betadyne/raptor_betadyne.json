@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    10.5,
-    9.2,
-    13
-  ],
   "catalog_object_name": "RaptorBetadyne",
   "kickstarter_backer": "Ron Pepper",
   "client": {

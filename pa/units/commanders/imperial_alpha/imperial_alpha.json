@@ -78,11 +78,6 @@
       "bone": "bone_leftElbow"
     }
   ],
-  "mesh_bounds": [
-    11,
-    6,
-    13.6193
-  ],
   "catalog_object_name": "AlphaCommander",
   "client": {
     "ui": {

@@ -1,5 +1,6 @@
 {
   "base_spec": "/pa/units/land/titan_bot/titan_bot.json",
+  "display_name": "Tutorial Titan Commander",
   "max_health": 1000000,
   "build_metal_cost": 30000,
   "guard_radius": 0,
@@ -11,13 +12,9 @@
     "UNITTYPE_Advanced",
     "UNITTYPE_Titan",
     "UNITTYPE_Important",
-    "UNITTYPE_Commander"
-  ],
-  "command_caps": [
-    "ORDER_Move",
-    "ORDER_Patrol",
-    "ORDER_Attack",
-    "ORDER_Assist"
+    "UNITTYPE_Commander",
+    "UNITTYPE_Amphibious",
+    "UNITTYPE_NoBuild"
   ],
   "recon": {
     "observer": {

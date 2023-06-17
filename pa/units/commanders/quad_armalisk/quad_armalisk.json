@@ -116,11 +116,6 @@
       "spec_id": "/pa/commander_regeneration/commander_regen_tool.json"
     }
   ],
-  "mesh_bounds": [
-    9.8,
-    10.2,
-    12.4
-  ],
   "catalog_object_name": "QuadArmalisk",
   "kickstarter_backer": "SacrificialLamb",
   "client": {

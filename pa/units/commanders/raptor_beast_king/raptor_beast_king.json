@@ -1,7 +1,7 @@
 {
   "base_spec": "/pa/units/commanders/raptor_base/raptor_base.json",
-  "display_name": "SPZ58624 Commander",
-  "description": "Raptor SPZ58624 Commander",
+  "display_name": "Beast King Commander",
+  "description": "Raptor Beast King Commander.",
   "attachable": {
     "offsets": {
       "root": [
@@ -11,21 +11,21 @@
       ],
       "head": [
         0,
-        -0.5,
-        10.6
+        -0.2,
+        12.8
       ]
     }
   },
   "model": {
-    "filename": "/pa/units/commanders/raptor_spz58624/raptor_spz58624.papa"
+    "filename": "/pa/units/commanders/raptor_beast_king/raptor_beast_king.papa"
   },
   "headlights": [
     {
       "gobo": "/pa/effects/textures/gobo/spotlight_gobo.papa",
       "offset": [
         0,
-        -2.149,
-        1.488
+        -3.652,
+        0.366
       ],
       "orientation": [
         0,
@@ -50,8 +50,8 @@
     {
       "offset": [
         0,
-        -3.8,
-        -0.37
+        -3.652,
+        0.366
       ],
       "radius": 2,
       "color": [
@@ -78,12 +78,12 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "catalog_object_name": "RaptorSPZ58624",
+  "catalog_object_name": "RaptorBeastKing",
   "client": {
     "ui": {
-      "image": "/ui/main/shared/img/commanders/img_raptor_spz58624.png",
-      "thumb_image": "/ui/main/shared/img/commanders/thumbs/img_raptor_spz58624_thumb.png",
-      "profile_image": "/ui/main/shared/img/commanders/profiles/profile_raptor_spz58624.png"
+      "image": "/ui/main/shared/img/commanders/img_raptor_beast_king.png",
+      "thumb_image": "/ui/main/shared/img/commanders/thumbs/img_raptor_beast_king_thumb.png",
+      "profile_image": "/ui/main/shared/img/commanders/profiles/profile_raptor_beast_king.png"
     }
   }
 }

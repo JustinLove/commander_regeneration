@@ -1,3 +1,8 @@
+## 4.3.0
+
+- Update for Custom58
+- Add new commanders since last version
+
 ## 4.2.0
 
 - Add new commanders circa 105067

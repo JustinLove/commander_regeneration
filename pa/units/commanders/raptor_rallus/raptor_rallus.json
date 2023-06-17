@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    9.5,
-    8.71255,
-    12.8
-  ],
   "catalog_object_name": "RaptorRallus",
   "client": {
     "ui": {

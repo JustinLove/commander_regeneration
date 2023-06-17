@@ -78,11 +78,6 @@
       "bone": "bone_leftShoulder"
     }
   ],
-  "mesh_bounds": [
-    10,
-    8.71255,
-    10.2
-  ],
   "catalog_object_name": "QuadRaventhornn",
   "client": {
     "ui": {

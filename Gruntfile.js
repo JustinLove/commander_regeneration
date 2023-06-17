@@ -5,27 +5,11 @@ prompt.start()
 var modPath = '../../server_mods/com.wondible.pa.commander_regeneration/'
 var stream = 'stable'
 var media = require('./lib/path').media(stream)
-var build = 'ui/main/shared/js/build.js'
-var live_game = 'ui/mods/commander_regeneration/live_game.js'
-var live_game_unit_alert = 'ui/mods/commander_regeneration/live_game_unit_alert.js'
-
 
 module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     copy: {
-      back: {
-        files: [
-          {
-            src: modPath + live_game,
-            dest: live_game,
-          },
-          {
-            src: modPath + live_game_unit_alert,
-            dest: live_game_unit_alert,
-          },
-        ],
-      },
       mod: {
         files: [
           {
@@ -88,6 +72,7 @@ module.exports = function(grunt) {
         cwd: media,
         dest: 'pa/commander_regeneration/commander_regen_tool.json',
         process: function(spec) {
+          console.log(spec)
           spec.ammo_id = '/pa/commander_regeneration/commander_regen_ammo.json'
           spec.fire_delay = 0
           spec.ammo_capacity = 0
@@ -115,8 +100,12 @@ module.exports = function(grunt) {
     }
   })
 
+  grunt.registerTask('printPath', function() {
+    console.log(media)
+  });
+
   // Default task(s).
-  grunt.registerTask('default', ['proc', 'jsonlint', 'json_schema', 'copy:mod']);
+  grunt.registerTask('default', ['proc', 'jsonlint', 'json_schema', 'copy:mod','printPath']);
 
 };
 
